@@ -49,7 +49,7 @@ public class Movement : MonoBehaviour
     {
         if (controller.isGrounded)
         {
-            forwardMovement = (Input.GetAxis("Vertical")) * moveSpeed));
+            forwardMovement = (Input.GetAxis("Vertical")) * moveSpeed;
             strafeMovement = (Input.GetAxis("Horizontal")) * moveSpeed;
 
             if (Input.GetButton("Jump"))

@@ -9,19 +9,20 @@ public class MovingComponent : MonoBehaviour
     public Vector3 moveDirection;
     [Tooltip("Time in seconds unit moves in one direction")]
     public float paceFrequency;
-    public bool canPatrol = true;
+    public bool canPatrol = false;
 
     private Rigidbody rb;
     [SerializeField]
     private Vector3 currentMoveDirection;
+    [SerializeField]
+    private RatBrain.RatState stateRef;
+
     private bool hasCoroutineStarted = false;
 
     void Start()
     {
         currentMoveDirection = new Vector3(moveDirection.x, moveDirection.y, moveDirection.z);
         rb = GetComponent<Rigidbody>();
-        hasCoroutineStarted = true;
-        StartCoroutine(Patrol());
     }
 
     IEnumerator Patrol()
@@ -41,17 +42,39 @@ public class MovingComponent : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void BeginPatrolling(RatBrain.RatState state)
     {
-        if(!canPatrol)
+        if(!hasCoroutineStarted)
         {
-            StopCoroutine(Patrol());
-            hasCoroutineStarted = false;
-        }
-        else if(!hasCoroutineStarted && canPatrol) 
-        {
+            canPatrol = true;
             hasCoroutineStarted = true;
+            stateRef = state;
             StartCoroutine(Patrol());
         }
     }
+
+    public void EndPatrolling(RatBrain.RatState state)
+    {
+        if(hasCoroutineStarted)
+        {
+            canPatrol = false;
+            hasCoroutineStarted = false;
+            stateRef = state;
+            StopCoroutine(Patrol());
+        }
+    }
+
+    //private void Update()
+    //{
+    //    if(!canPatrol)
+    //    {
+    //        StopCoroutine(Patrol());
+    //        hasCoroutineStarted = false;
+    //    }
+    //    else if(!hasCoroutineStarted && canPatrol) 
+    //    {
+    //        hasCoroutineStarted = true;
+    //        StartCoroutine(Patrol());
+    //    }
+    //}
 }

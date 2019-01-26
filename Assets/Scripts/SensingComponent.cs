@@ -6,7 +6,7 @@ public class SensingComponent : MonoBehaviour
 {
     private SphereCollider sensingCollider;
     [SerializeField]
-    private List<GameObject> objectsWithinRadius = new List<GameObject>();
+    private Dictionary<string, GameObject> objectsWithinRadius = new Dictionary<string, GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -16,27 +16,25 @@ public class SensingComponent : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
-       if(other.gameObject.tag == Tags.RAT)
+       
+       if(other.gameObject.tag == Tags.RAT || other.tag == Tags.CHEESE || other.gameObject.tag == Tags.PLAYER)
        {
-            objectsWithinRadius.Add(other.gameObject);
-            print("I See Rat");
+            print("I See "+other.gameObject.tag);
+            objectsWithinRadius.Add(other.gameObject.tag, other.gameObject);
        }
-       else if(other.gameObject.tag == Tags.CHEESE)
-       {
-            print("I See Cheese");
-            objectsWithinRadius.Add(other.gameObject);
-        }
-       else if(other.gameObject.tag == Tags.PLAYER)
-       {
-            print("I See Player");
-            objectsWithinRadius.Add(other.gameObject);
-        }
- 
     }
-
-    public GameObject GetLastSeenObject()
+    private void OnTriggerExit(Collider other)
     {
+        
+    }
+    public GameObject GetTarget()
+    {
+        if(objectsWithinRadius.Keys
+
+        if (tags.Contains(Tags.CHEESE))
+        {
+
+        } else if (tags.Contains(Tags.Cheese))
         return lastSeenObject;
     }
 }

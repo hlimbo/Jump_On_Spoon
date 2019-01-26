@@ -60,7 +60,6 @@ public class PickupController : MonoBehaviour
 
 	void hold(Vector3 holdPosition)
 	{
-        item.transparent();
 		holdItem.transform.parent.transform.position = holdPosition;
 	}
 			

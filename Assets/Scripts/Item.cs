@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    
+
     public bool pickupable;
     public bool withinRange;
 
@@ -12,14 +12,9 @@ public class Item : MonoBehaviour
     {
         GetComponent<Renderer>().material.shader = Shader.Find("Self-Illumin/Outlined Diffuse");
     }
-    
+
     public void standardize()
     {
         GetComponent<Renderer>().material.shader = Shader.Find("Standard");
-    }
-
-    public void transparent()
-    {
-        GetComponent<Renderer>().material.shader = Shader.Find("Transparent");
     }
 }

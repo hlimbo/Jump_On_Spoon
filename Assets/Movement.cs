@@ -9,9 +9,9 @@ public class Movement : MonoBehaviour
     public static Movement instance;
 
     [SerializeField]
-    public float forwardMovement;
+    public float forwardSpeed;
     [SerializeField]
-    public float strafeMovement;
+    public float strafeSpeed;
     [SerializeField]
     public float moveSpeed = 6.0f;
     [SerializeField]
@@ -19,6 +19,8 @@ public class Movement : MonoBehaviour
     [SerializeField]
     public float gravity = 20.0f;
 
+    [SerializeField]
+    private Vector3 forwardMoveVector;
     [SerializeField]
     private Camera mainCamera;
     private Vector3 moveDirection = Vector3.zero;
@@ -49,22 +51,22 @@ public class Movement : MonoBehaviour
     {
         if (controller.isGrounded)
         {
-            forwardMovement = (Input.GetAxis("Vertical")) * moveSpeed));
-            strafeMovement = (Input.GetAxis("Horizontal")) * moveSpeed;
+            forwardSpeed = (Input.GetAxis("Vertical")) * moveSpeed;
+            strafeSpeed = (Input.GetAxis("Horizontal")) * moveSpeed;
 
             if (Input.GetButton("Jump"))
             {
                 moveDirection.y = jumpSpeed;
             }
 
-            // We are grounded, so recalculate
-            // move direction directly from axes
-
             //moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
             //moveDirection = transform.TransformDirection(moveDirection);
             //moveDirection = moveDirection * moveSpeed;
 
-            moveDirection = new Vector3(strafeMovement, moveDirection.y, forwardMovement);         
+            // orients forward and strafe movement around player's facing direction
+            moveDirection = Vector3.ProjectOnPlane(Camera.main.transform.forward, Vector3.up);
+            moveDirection *= forwardSpeed;
+            //moveDirection = transform.TransformDirection(new Vector3(strafeSpeed, moveDirection.y, forwardSpeed * forwardMoveVector.z));         
         }
        
         // Apply gravity

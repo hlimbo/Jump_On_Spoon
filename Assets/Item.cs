@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    public bool pickupable;
+    public bool withinRange;
+    void OnMouseOver()
     {
-        
+        if (pickupable && withinRange)
+        {
+            Debug.Log("Highlighting");
+            GetComponent<Renderer>().material.shader = Shader.Find("Self-Illumin/Outlined Diffuse");
+			withinRange = false;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnMouseExit()
     {
-        
+        Debug.Log("unhighlighting");
+        GetComponent<Renderer>().material.shader = Shader.Find("Standard");
+
     }
 }

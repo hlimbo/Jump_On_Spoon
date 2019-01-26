@@ -15,7 +15,7 @@ public class MovingComponent : MonoBehaviour
     [SerializeField]
     private Vector3 currentMoveDirection;
     [SerializeField]
-    private RatBrain.RatState stateRef;
+    private RatBrain.RatState stateRef = RatBrain.RatState.UNDECIDED;
 
     private bool hasCoroutineStarted = false;
 
@@ -23,6 +23,11 @@ public class MovingComponent : MonoBehaviour
     {
         currentMoveDirection = new Vector3(moveDirection.x, moveDirection.y, moveDirection.z);
         rb = GetComponent<Rigidbody>();
+
+        if(canPatrol)
+        {
+            StartCoroutine(Patrol());
+        }
     }
 
     IEnumerator Patrol()

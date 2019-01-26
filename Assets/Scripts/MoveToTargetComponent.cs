@@ -10,6 +10,11 @@ public class MoveToTargetComponent : MonoBehaviour
     private Vector3 targetDirection;
     private Vector3 distance;
 
+    private RatBrain.RatState stateRef;
+    [SerializeField]
+    private bool canChase = false;
+    private bool hasCoroutineStarted = false;
+
     private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
@@ -17,15 +22,65 @@ public class MoveToTargetComponent : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator Chase()
     {
-        // subtract current position by target position and normalize it
-        distance = target.transform.position - transform.position;
-        if (distance.magnitude > stoppingDistance)
+        while(canChase)
         {
-            targetDirection = Vector3.Normalize(distance);
-            rb.MovePosition(transform.position + (targetDirection * moveSpeed * Time.deltaTime));
+            distance = target.transform.position - transform.position;
+            if (distance.magnitude > stoppingDistance)
+            {
+                targetDirection = Vector3.Normalize(distance);
+                rb.MovePosition(transform.position + (targetDirection * moveSpeed * Time.deltaTime));
+            }
+
+            yield return null;
         }
     }
+
+    public void BeginChasing(RatBrain.RatState state, GameObject target)
+    {
+        stateRef = state;
+        // change target if currentTarget is overwritten from SensingComponent
+        if(this.target != null && this.target != target)
+        {
+            StopCoroutine(Chase());
+            hasCoroutineStarted = false;
+        }
+
+        // if rat has not seen anyone yet, chase the first target it sees
+        if(!hasCoroutineStarted)
+        {
+            canChase = true;
+            hasCoroutineStarted = true;
+            this.target = target;
+            StartCoroutine(Chase()); 
+
+        }
+    }
+
+    public void EndChasing(RatBrain.RatState state)
+    {
+        if(hasCoroutineStarted)
+        {
+            canChase = false;
+            hasCoroutineStarted = false;
+            stateRef = state;
+            this.target = null;
+            StopCoroutine(Chase());
+        }
+    }
+
+
+    // Update is called once per frame
+    //void Update()
+    //{
+    //    distance = target.transform.position - transform.position;
+    //    if (distance.magnitude > stoppingDistance)
+    //    {
+    //        targetDirection = Vector3.Normalize(distance);
+    //        rb.MovePosition(transform.position + (targetDirection * moveSpeed * Time.deltaTime));
+    //    }
+    //}
+
+    
 }

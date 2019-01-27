@@ -31,9 +31,9 @@ public class Trampoliner : MonoBehaviour
             {
                 // Player is bouncing again!
                 bounces++;
-                if (bounces > jumpSpeeds.Length)
+                if (bounces > oldTramp.jumpSpeeds.Length) //jumpSpeeds.Length)
                 {
-                    bounces = jumpSpeeds.Length;
+                    bounces = oldTramp.jumpSpeeds.Length; // jumpSpeeds.Length;
                 }
             }
             else
@@ -42,7 +42,7 @@ public class Trampoliner : MonoBehaviour
                 oldTramp = collidedTramp;
             }
 
-            rfpc.OverrideJump (jumpSpeeds[bounces - 1], jumpDrag);
+            rfpc.OverrideJump (oldTramp.jumpSpeeds[bounces - 1], jumpDrag);
             rfpc.trampolining = true;
 
             rfpc.movementSettings.ForwardSpeed = airSpeed;

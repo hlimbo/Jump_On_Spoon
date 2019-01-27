@@ -49,15 +49,16 @@ public class PickupController : MonoBehaviour
             }
             
         }
-        if (Physics.Raycast(ray, out hit, 6f) && Input.GetMouseButton(1) && hit.transform.GetComponent<Rigidbody>())
-        {
-            hit.transform.gameObject.GetComponentInParent<Rigidbody>().AddForce(new Vector3(transform.forward.x, 0f, transform.forward.z) * thrust);
-        }
         else if (item)
         {
             item.standardize();
             item = null;
         }
+        if (Physics.Raycast(ray, out hit, 6f) && Input.GetMouseButton(1) && hit.transform.GetComponent<Rigidbody>())
+        {
+            hit.transform.gameObject.GetComponentInParent<Rigidbody>().AddForce(new Vector3(transform.forward.x, 0f, transform.forward.z) * thrust);
+        }
+        
         if (holding)
         {
             if (Input.GetAxis("Mouse ScrollWheel") > 0)
@@ -71,9 +72,8 @@ public class PickupController : MonoBehaviour
 
 	void hold(Vector3 holdPosition)
 	{
-        
+        holdItem.transform.forward = transform.forward;
 		holdItem.transform.parent.transform.position = holdPosition;
-        holdItem.transform.rotation = Quaternion.Euler(0,0,0);
         holdItem.GetComponent<Item>().fixPosition();
 	}
 			

@@ -1,1 +1,1 @@
-*.ma filter=lfs diff=lfs merge=lfs -text
+Assets/chase/** filter=lfs diff=lfs merge=lfs -text

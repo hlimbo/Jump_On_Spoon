@@ -138,6 +138,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 
+        public void OverrideUpdate ()
+        {
+            RotateView ();
+        }
+
         public void OverrideMouseLook (Transform t)
         {
             cam.transform.localRotation = Quaternion.identity;

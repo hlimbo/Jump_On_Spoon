@@ -14,6 +14,7 @@ public class MovingComponent : MonoBehaviour
     private Rigidbody rb;
     [SerializeField]
     private Vector3 currentMoveDirection;
+    public Vector3 CurrentMoveDirection() { return currentMoveDirection; }
     [SerializeField]
     private RatBrain.RatState stateRef = RatBrain.RatState.UNDECIDED;
 

@@ -20,7 +20,7 @@ public class MoveToTargetComponent : MonoBehaviour
 
     private Rigidbody rb;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }

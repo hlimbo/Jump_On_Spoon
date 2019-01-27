@@ -7,6 +7,7 @@ public class Item : MonoBehaviour
     
     public bool pickupable;
     public bool withinRange;
+    public Material transparentMat;
     Material mat;
     Vector3 defaultPosition;
     private void Start()
@@ -23,18 +24,12 @@ public class Item : MonoBehaviour
     public void standardize()
     {
         GetComponent<Renderer>().material.shader = Shader.Find("Standard");
+        GetComponent<MeshRenderer>().material = mat;
     }
 
     public void transparent()
     {
-        GetComponent<MeshRenderer>().material = (Material)Resources.Load("Transparent", typeof(Material));
-
-    }
-
-    public void opaque()
-    {
-
-        GetComponent<MeshRenderer>().material = mat;
+        GetComponent<MeshRenderer>().material = transparentMat;
     }
 
     public void fixPosition()

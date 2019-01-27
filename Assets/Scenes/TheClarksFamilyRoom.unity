@@ -2287,8 +2287,6 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 2100000, guid: f01cddcd7aab164418554aa79fd237dd, type: 2}
   - {fileID: 2100000, guid: 2e2b20aff357d1548a009af352bff8ff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -3140,6 +3138,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1845492992156413005, guid: 7313a90b15a2f534d825a8e3b4b85321,
+        type: 3}
+      propertyPath: m_Name
+      value: Book
+      objectReference: {fileID: 0}
     - target: {fileID: 1845492992156413004, guid: 7313a90b15a2f534d825a8e3b4b85321,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3209,11 +3212,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1845492992156413005, guid: 7313a90b15a2f534d825a8e3b4b85321,
-        type: 3}
-      propertyPath: m_Name
-      value: Book
       objectReference: {fileID: 0}
     - target: {fileID: 1845492992156413003, guid: 7313a90b15a2f534d825a8e3b4b85321,
         type: 3}

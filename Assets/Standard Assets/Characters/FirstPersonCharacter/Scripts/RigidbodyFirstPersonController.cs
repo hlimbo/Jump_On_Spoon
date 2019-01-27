@@ -191,7 +191,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             if (m_IsGrounded)
             {
-                if (!trampolining) m_RigidBody.drag = 5f;
+                if (!trampolining)
+                {
+                    m_RigidBody.drag = 5f;
+                }
 
                 if (m_Jump)
                 {

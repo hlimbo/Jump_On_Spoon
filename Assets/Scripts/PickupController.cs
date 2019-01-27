@@ -23,6 +23,7 @@ public class PickupController : MonoBehaviour
     {
         Ray ray = new Ray(transform.position, camera.transform.forward);
         RaycastHit hit;
+        
         if (Physics.Raycast(ray, out hit, 6f) && hit.transform.GetComponent<Item>())
         {
             item = hit.transform.GetComponent<Item>();
@@ -44,7 +45,6 @@ public class PickupController : MonoBehaviour
                     holdItem.layer = 12;
                     holdItem.GetComponent<Rigidbody>().isKinematic = false;
                     holding = false;
-                    item.standardize();
                     holdItem = null;
                 }
             }
@@ -55,6 +55,8 @@ public class PickupController : MonoBehaviour
             item.standardize();
             item = null;
         }
+
+        
 
         // Push mechanic
         if (Physics.Raycast(ray, out hit, 6f) && Input.GetMouseButton(1) && hit.transform.GetComponent<Rigidbody>())

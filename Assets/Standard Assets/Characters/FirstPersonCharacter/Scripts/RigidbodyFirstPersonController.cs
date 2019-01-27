@@ -8,6 +8,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
     [RequireComponent(typeof (CapsuleCollider))]
     public class RigidbodyFirstPersonController : MonoBehaviour
     {
+        public bool trampolining = false;
+
         [Serializable]
         public class MovementSettings
         {
@@ -136,6 +138,26 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 
+        public void OverrideMouseLook (Transform t)
+        {
+            cam.transform.localRotation = Quaternion.identity;
+            mouseLook.Init (t, cam.transform);
+            //mouseLook.LookRotation (t, cam.transform);
+        }
+
+        public void OverrideJump (float f, float overrideDrag)
+        {
+            m_IsGrounded = false;
+
+            m_Jump = true;
+            if (m_Jump)
+            {
+                m_RigidBody.drag = overrideDrag;
+                m_RigidBody.velocity = new Vector3 (m_RigidBody.velocity.x, 0f, m_RigidBody.velocity.z);
+                m_RigidBody.AddForce (new Vector3 (0f, f, 0f), ForceMode.Impulse);
+                m_Jumping = true;
+            }
+        }
 
         private void FixedUpdate()
         {
@@ -156,15 +178,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 {
                     m_RigidBody.AddForce(desiredMove*SlopeMultiplier(), ForceMode.Impulse);
                 }
+                else if (trampolining)
+                {
+                    m_RigidBody.AddForce (desiredMove * SlopeMultiplier (), ForceMode.Impulse);
+                }
             }
 
             if (m_IsGrounded)
             {
-                m_RigidBody.drag = 5f;
+                if (!trampolining) m_RigidBody.drag = 5f;
 
                 if (m_Jump)
                 {
-                    m_RigidBody.drag = 0f;
+                    if (!trampolining) m_RigidBody.drag = 0f;
                     m_RigidBody.velocity = new Vector3(m_RigidBody.velocity.x, 0f, m_RigidBody.velocity.z);
                     m_RigidBody.AddForce(new Vector3(0f, movementSettings.JumpForce, 0f), ForceMode.Impulse);
                     m_Jumping = true;
@@ -177,7 +203,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             else
             {
-                m_RigidBody.drag = 0f;
+                if (!trampolining) m_RigidBody.drag = 0f;
+
                 if (m_PreviouslyGrounded && !m_Jumping)
                 {
                     StickToGroundHelper();
@@ -260,6 +287,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_Jumping = false;
             }
+        }
+
+        public bool IsGrounded
+        {
+            get { return m_IsGrounded; }
         }
     }
 }

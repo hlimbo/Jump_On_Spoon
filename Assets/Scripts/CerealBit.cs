@@ -24,7 +24,7 @@ public class CerealBit : MonoBehaviour
             float deltaTime = Time.time - startTime;
             while(deltaTime < bobFrequency)
             {
-
+                transform.position = new Vector3(transform.position.x, transform.position.y + (bobbingSpeed * Time.deltaTime), transform.position.z);
                 yield return null;
                 deltaTime = Time.time - startTime;
             }

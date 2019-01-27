@@ -56,6 +56,8 @@ public class PickupController : MonoBehaviour
             item.standardize();
             item = null;
         }
+
+        // Push mechanic
         if (Physics.Raycast(ray, out hit, 6f) && Input.GetMouseButton(1) && hit.transform.GetComponent<Rigidbody>())
         {
             hit.transform.gameObject.GetComponentInParent<Rigidbody>().AddForce(new Vector3(transform.forward.x, 0f, transform.forward.z) * thrust);
@@ -75,6 +77,7 @@ public class PickupController : MonoBehaviour
 	void hold(Vector3 holdPosition)
 	{
         holdItem.transform.forward = transform.forward;
+
 		holdItem.transform.parent.transform.position = holdPosition;
         holdItem.GetComponent<Item>().fixPosition();
 	}

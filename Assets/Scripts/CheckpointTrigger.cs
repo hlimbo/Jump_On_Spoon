@@ -19,7 +19,8 @@ public class CheckpointTrigger : MonoBehaviour
         if (other.tag == "Player")
         {
             SpawnPoint.ActivateSpawnPoint (spawn);
-            FindObjectOfType<MeshRenderer> ().enabled = false;
+            MeshRenderer mr = GetComponentInChildren<MeshRenderer> ();
+            if (mr) mr.enabled = false;
         }
     }
 }

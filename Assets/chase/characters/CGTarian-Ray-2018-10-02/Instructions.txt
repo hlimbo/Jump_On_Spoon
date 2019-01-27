@@ -1,0 +1,18 @@
+﻿INSTRUCTIONS:
+
+Shelf file "shelf_CGTarian_Ray.mel" copy to folder "shelves"
+C:\Users\Name\Documents\maya\2015-x64\prefs\shelves
+
+Folder with icons "char_anim_icons" copy to folder "icons"
+C:\Users\Name\Documents\maya\2015-x64\prefs\icons
+
+If you use MAYA other than 2015, path to the files will change accordingly.
+
+You can download new version of the Ray here: https://www.cgtarian.com/maya-character-rigs/download-free-3d-character-ray.html
+
+For Ray bug report please use this form: https://www.cgtarian.com/maya-character-rigs/download-free-3d-character-ray.html
+
+Have a great animation,
+
+Animation & VFX School CGTarian
+www.cgtarian.com

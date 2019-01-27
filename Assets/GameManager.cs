@@ -11,6 +11,15 @@ public class GameManager : MonoBehaviour
     private float timeSinceStart;
 
     #region UNITY CALLBACKS
+
+    private void Update ()
+    {
+        if (Input.GetKey (KeyCode.LeftShift) && Input.GetKeyDown (KeyCode.L))
+        {
+            LoadNextScene ();
+        }
+    }
+
     private void OnEnable()
     {
         if (instance == null)
@@ -35,7 +44,15 @@ public class GameManager : MonoBehaviour
     public void LoadNextScene()
     {
         Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene((int)scene.buildIndex + 1);
+        int nextSceneNum = scene.buildIndex + 1;
+        print ("scene num plus 1 " + nextSceneNum);
+        print ("scenemanage.scene count " + SceneManager.sceneCountInBuildSettings);
+        if (nextSceneNum >= SceneManager.sceneCountInBuildSettings)
+        {
+            Debug.Log ("wrapping scene load build index, bc we're skipping family room");
+            nextSceneNum = 0;
+        }
+        SceneManager.LoadScene (nextSceneNum);
     }
 
     public void LoadScene(string name)

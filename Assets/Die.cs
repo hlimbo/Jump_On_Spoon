@@ -9,20 +9,32 @@ public class Die : MonoBehaviour
     private float v;
     private RigidbodyFirstPersonController rfpc;
     private Rigidbody rb;
-    private void Start()
+    private Canvas canvas;
+
+    private void Awake()
     {
         rfpc = GetComponent<RigidbodyFirstPersonController>();
         rb = GetComponent<Rigidbody>();
+        canvas = FindObjectOfType<Canvas>();
+    }
+
+    private void Start()
+    {
+        canvas.gameObject.SetActive(false);
     }
 
     private void Update()
     {
-        Debug.Log(rfpc.Grounded);
-        Debug.Log(v);
         if (rfpc.Grounded && v < -dieVelocity)
         {
-            SpawnPoint.Respawn(transform);
+            canvas.gameObject.SetActive(true);
         }
         v = rb.velocity.y;
+    }
+
+    public void Spawn()
+    {
+        SpawnPoint.Respawn(transform);
+        canvas.gameObject.SetActive(false);
     }
 }

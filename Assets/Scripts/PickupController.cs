@@ -34,7 +34,6 @@ public class PickupController : MonoBehaviour
                 {
                     holdItem = item.gameObject;
                     holdItem.layer = 13;
-                    Debug.Log(holdItem.layer);
                     holdItem.GetComponent<Rigidbody>().isKinematic = true;
                     holding = true;
                     item.standardize();

@@ -11,7 +11,8 @@ public class RatBrain : MonoBehaviour
     {
         PATROL,
         CHASE,
-        UNDECIDED
+        UNDECIDED,
+        IDLE
     }
 
     [SerializeField]

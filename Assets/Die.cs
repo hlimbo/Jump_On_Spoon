@@ -36,9 +36,10 @@ public class Die : MonoBehaviour
     {
         if(v < -35f && !collision.gameObject.CompareTag("Soft"))
         {
-            v = 0;
             canvas.gameObject.SetActive(true);
         }
+        v = 0;
+
     }
 
     public void Spawn()

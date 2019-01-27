@@ -228,13 +228,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1175117833, guid: 6c356367c3d42b94b9f411ea225a7001, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Soft
       objectReference: {fileID: 0}
     - target: {fileID: 1358042904873367997, guid: 6c356367c3d42b94b9f411ea225a7001,
         type: 3}
       propertyPath: spawn
       value: 
       objectReference: {fileID: 95750369}
+    - target: {fileID: 6420954387527335049, guid: 6c356367c3d42b94b9f411ea225a7001,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420954387527335049, guid: 6c356367c3d42b94b9f411ea225a7001,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420954387527335049, guid: 6c356367c3d42b94b9f411ea225a7001,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.0000038146973
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420954387527335049, guid: 6c356367c3d42b94b9f411ea225a7001,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.00000011920929
+      objectReference: {fileID: 0}
+    - target: {fileID: 6420954387527335049, guid: 6c356367c3d42b94b9f411ea225a7001,
+        type: 3}
+      propertyPath: m_Center.z
+      value: 0.000000014901161
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c356367c3d42b94b9f411ea225a7001, type: 3}
 --- !u!1 &691456322

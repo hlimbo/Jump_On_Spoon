@@ -8,13 +8,25 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/BedRoom.unity
+  - enabled: 0
+    path: Assets/__DELETED_GUID_Trash/9fec39ae3d42332418be3ad0dc449678
     guid: 9fec39ae3d42332418be3ad0dc449678
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Kitchen.unity
     guid: e40620c44fb5a22479b47cf5da44a68a
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 5967c71ccd8f8d744bd53c52b18ad9fb
+  - enabled: 1
+    path: Assets/Scenes/Bedroom.unity
+    guid: 634fde21c9541f14facfe54a3b706c72
+  - enabled: 1
+    path: Assets/Scenes/Bathroom.unity
+    guid: e339f86d0557df343a2c9236951df6ba
+  - enabled: 1
+    path: Assets/Scenes/FamiRoom.unity
+    guid: b91b8226fb310da419e31150f308fed3
   m_configObjects: {}

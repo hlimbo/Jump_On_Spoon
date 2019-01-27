@@ -7,9 +7,12 @@ public class SpawnPoint : MonoBehaviour
 {
     public int num;
 
+    public static int acitveSpawnNum = 0;
+
     private static SpawnPoint activeSpawnPoint;
     private static Vector3 activeSpawnPosition;
     private static Quaternion activeSpawnRotation;
+
 
     void Start()
     {
@@ -27,8 +30,9 @@ public class SpawnPoint : MonoBehaviour
                 return;
             }
         }
-
         activeSpawnPoint = newSpawn;
+
+        acitveSpawnNum = activeSpawnPoint.num;
         activeSpawnPosition = activeSpawnPoint.transform.position;
         activeSpawnRotation = activeSpawnPoint.transform.rotation;
     }

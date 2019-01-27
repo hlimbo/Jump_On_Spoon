@@ -7,6 +7,5 @@ public class GameOverManager : MonoBehaviour
     private void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        gameObject.SetActive(true);
     }
 }

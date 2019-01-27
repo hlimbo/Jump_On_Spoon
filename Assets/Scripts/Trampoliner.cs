@@ -23,16 +23,17 @@ public class Trampoliner : MonoBehaviour
 
     private void OnCollisionEnter (Collision collision)
     {
-        Trampoline collidedTramp = collision.gameObject.GetComponent<Trampoline> ();
-        if (collidedTramp)
+        Trampoline collidedTramp = collision.gameObject.GetComponentInParent<Trampoline> ();
+        if (collidedTramp) 
         {
+            print("hit tramp!");
             if (oldTramp)
             {
                 // Player is bouncing again!
                 bounces++;
-                if (bounces > jumpSpeeds.Length)
+                if (bounces > oldTramp.jumpSpeeds.Length) //jumpSpeeds.Length)
                 {
-                    bounces = jumpSpeeds.Length;
+                    bounces = oldTramp.jumpSpeeds.Length; // jumpSpeeds.Length;
                 }
             }
             else
@@ -41,7 +42,7 @@ public class Trampoliner : MonoBehaviour
                 oldTramp = collidedTramp;
             }
 
-            rfpc.OverrideJump (jumpSpeeds[bounces - 1], jumpDrag);
+            rfpc.OverrideJump (oldTramp.jumpSpeeds[bounces - 1], jumpDrag);
             rfpc.trampolining = true;
 
             rfpc.movementSettings.ForwardSpeed = airSpeed;
@@ -50,6 +51,7 @@ public class Trampoliner : MonoBehaviour
         }
         else
         {
+            print(collision.gameObject + " hit non tramp" );
             rfpc.movementSettings.ForwardSpeed = 8f;
             rfpc.movementSettings.BackwardSpeed = 4f;
             rfpc.movementSettings.StrafeSpeed = 4f;

@@ -4,13 +4,22 @@ using UnityEngine;
 
 public class BathroomFloor : MonoBehaviour
 {
+    public bool familyRoomFloor = false;
+    public bool kill = true;
+
     private void OnCollisionEnter (Collision collision)
     {
         if (collision.rigidbody)
         {
             if (collision.rigidbody.tag == "Player")
             {
-                SpawnPoint.Respawn (collision.rigidbody.transform);
+                if (kill) SpawnPoint.Respawn (collision.rigidbody.transform);
+
+                if (familyRoomFloor && SpawnPoint.acitveSpawnNum == 0)
+                {
+                    print ("turning off floor");
+                    kill = false;
+                }
             }
         }
     }

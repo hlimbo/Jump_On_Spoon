@@ -15,6 +15,9 @@ public class MoveToTargetComponent : MonoBehaviour
     private bool canChase = false;
     private bool hasCoroutineStarted = false;
 
+    private bool isCloseEnough = false;
+    public bool IsCloseEnough() { return isCloseEnough; }
+
     private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
@@ -27,6 +30,7 @@ public class MoveToTargetComponent : MonoBehaviour
         while(canChase)
         {
             distance = target.transform.position - transform.position;
+            isCloseEnough = distance.magnitude < stoppingDistance;
             if (distance.magnitude > stoppingDistance)
             {
                 targetDirection = Vector3.Normalize(distance);
@@ -54,20 +58,24 @@ public class MoveToTargetComponent : MonoBehaviour
             hasCoroutineStarted = true;
             this.target = target;
             StartCoroutine(Chase()); 
-
         }
     }
 
     public void EndChasing(RatBrain.RatState state)
     {
+        stateRef = state;
         if(hasCoroutineStarted)
         {
             canChase = false;
             hasCoroutineStarted = false;
-            stateRef = state;
             this.target = null;
             StopCoroutine(Chase());
         }
+    }
+
+    public void SetStateRef(RatBrain.RatState state)
+    {
+        stateRef = state;
     }
 
 

@@ -60,11 +60,11 @@ public class MovingComponent : MonoBehaviour
 
     public void EndPatrolling(RatBrain.RatState state)
     {
+        stateRef = state;
         if(hasCoroutineStarted)
         {
             canPatrol = false;
             hasCoroutineStarted = false;
-            stateRef = state;
             StopCoroutine(Patrol());
         }
     }

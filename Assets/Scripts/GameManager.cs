@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    private int timeFromStart;
+    private float timeFromStart;
 
     #region  UNITY CALLBACKS       
     void OnEnable() 
@@ -26,19 +26,19 @@ public class GameManager : MonoBehaviour
 
     IEnumerator CoKeepTrackOfTime()
     {
-        yield return WaitForSeconds(1);
+        yield return new WaitForSeconds(1);
         timeFromStart += Time.deltaTime;
         yield return null;
     }
 
-    public LoadNextScene()
+    public void LoadNextScene()
     {
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene((int)scene.buildIndex + 1);
     }
 
     // Called when player finishes game
-    public EndGame()
+    public void EndGame()
     {
         print(timeFromStart);
     }

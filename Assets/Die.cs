@@ -9,13 +9,13 @@ public class Die : MonoBehaviour
     private float v;
     private RigidbodyFirstPersonController rfpc;
     private Rigidbody rb;
-    private Canvas canvas;
+    private GameOverManager canvas;
 
     private void Awake()
     {
         rfpc = GetComponent<RigidbodyFirstPersonController>();
         rb = GetComponent<Rigidbody>();
-        canvas = FindObjectOfType<Canvas>();
+        canvas = FindObjectOfType<GameOverManager>();
     }
 
     private void Start()

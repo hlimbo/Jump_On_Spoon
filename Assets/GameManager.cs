@@ -38,6 +38,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene((int)scene.buildIndex + 1);
     }
 
+    public void LoadScene(string name)
+    {
+        SceneManager.LoadScene(name);
+    }
+
     public void EndGame()
     {
         //creditsPanel.SetActive(true);

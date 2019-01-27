@@ -51,7 +51,6 @@ public class Trampoliner : MonoBehaviour
         }
         else
         {
-            print(collision.gameObject + " hit non tramp" );
             rfpc.movementSettings.ForwardSpeed = 8f;
             rfpc.movementSettings.BackwardSpeed = 4f;
             rfpc.movementSettings.StrafeSpeed = 4f;

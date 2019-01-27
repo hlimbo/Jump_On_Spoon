@@ -22,6 +22,29 @@ public class SpawnPoint : MonoBehaviour
 
     public static void ActivateSpawnPoint (SpawnPoint newSpawn)
     {
+        if (!newSpawn)
+        {
+            SpawnPoint[] spawnPoints = FindObjectsOfType<SpawnPoint> ();
+            float distanceToPoint = Mathf.Infinity;
+            SpawnPoint nearestPoint = null;
+
+            Trampoliner player = FindObjectOfType<Trampoliner> ();
+
+            for (int i = 0; i < spawnPoints.Length; i++)
+            {
+                float distanceToThisPoint = Vector3.Distance (spawnPoints[i].transform.position, player.transform.position);
+
+                if (distanceToThisPoint< distanceToPoint)
+                {
+                    nearestPoint = spawnPoints[i];
+                    distanceToPoint = distanceToThisPoint;
+                }
+            }
+
+            newSpawn = nearestPoint;
+        }
+
+
         if (activeSpawnPoint)
         {
             if (newSpawn.num < activeSpawnPoint.num)

@@ -36,10 +36,24 @@ public class Die : MonoBehaviour
     {
         if(v < -35f && !collision.gameObject.CompareTag("Soft"))
         {
-            canvas.gameObject.SetActive(true);
+            die();
         }
         v = 0;
 
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        print("HIt Trig" + other.name);
+        if(other.gameObject.name == "KillerRat")
+        {
+            print("Rat will kill me");
+            die();
+        }
+    }
+
+    public void die()
+    {
+        canvas.gameObject.SetActive(true);
     }
 
     public void Spawn()

@@ -29,10 +29,13 @@ public class ToiletBowlFlush : MonoBehaviour
 
     private IEnumerator Flush (Transform t)
     {
-        aSource.PlayOneShot (flushSound);
+        if (aSource && flushSound)
+        {
+            aSource.PlayOneShot (flushSound);
+        }
 
         Instantiate (blackCurtainPrefab, t.position + t.forward * 5f, t.rotation, t);
-        float blackTime = 2f;
+        float blackTime = flushSound ? flushSound.length : 2f;
         float start = Time.time;
 
         yield return new WaitForSeconds (blackTime);

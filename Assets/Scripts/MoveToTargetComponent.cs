@@ -30,6 +30,8 @@ public class MoveToTargetComponent : MonoBehaviour
         while(canChase)
         {
             distance = target.transform.position - transform.position;
+            Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDirection, moveSpeed * Time.deltaTime, 0.0f);
+            transform.rotation = Quaternion.LookRotation(newDir);
             isCloseEnough = distance.magnitude < stoppingDistance;
             if (distance.magnitude > stoppingDistance)
             {

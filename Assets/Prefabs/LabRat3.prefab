@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 1036177071943444638}
   - component: {fileID: 1036177071943444639}
   - component: {fileID: 1036177071943444632}
+  - component: {fileID: 4315353801330707545}
   - component: {fileID: 1036177071943444633}
   - component: {fileID: 1036177071943444637}
-  - component: {fileID: 7876008599962962370}
   - component: {fileID: 7670518851403747613}
+  - component: {fileID: 7876008599962962370}
   m_Layer: 0
   m_Name: LabRat3
-  m_TagString: Rat
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,9 +30,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036177071943444634}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 26.389343, y: 1, z: -2.1116405}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 30.544811, y: 6.69, z: 62}
+  m_LocalScale: {x: 210, y: 210, z: 210}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -43,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036177071943444634}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: b95c653f1c3873140ae8a0362bdca3c5, type: 3}
 --- !u!23 &1036177071943444632
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -61,7 +62,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b95c653f1c3873140ae8a0362bdca3c5, type: 3}
+  - {fileID: 2100002, guid: b95c653f1c3873140ae8a0362bdca3c5, type: 3}
+  - {fileID: 2100004, guid: b95c653f1c3873140ae8a0362bdca3c5, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,6 +84,25 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!95 &4315353801330707545
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036177071943444634}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: b95c653f1c3873140ae8a0362bdca3c5, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!65 &1036177071943444633
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -92,8 +114,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.027263623, y: 0.044518545, z: 0.09371881}
+  m_Center: {x: 0.0006214971, y: -0.004020927, z: -0.007089515}
 --- !u!54 &1036177071943444637
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -110,20 +132,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7876008599962962370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1036177071943444634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f53c3038f29d9246b85083a8956ed1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints: []
-  currentWaypoint: {fileID: 0}
 --- !u!114 &7670518851403747613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +144,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07cc59126156e0a4a9f894c412d15b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  stoppingDistance: 0
+  moveSpeed: 20
+  stoppingDistance: 20
   target: {fileID: 0}
   canChase: 0
+--- !u!114 &7876008599962962370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036177071943444634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f53c3038f29d9246b85083a8956ed1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  currentWaypoint: {fileID: 0}

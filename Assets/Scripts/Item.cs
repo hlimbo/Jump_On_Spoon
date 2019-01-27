@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    
     public bool pickupable;
     public bool withinRange;
     public Material transparentMat;
@@ -32,6 +31,7 @@ public class Item : MonoBehaviour
         GetComponent<MeshRenderer>().material = transparentMat;
     }
 
+    // Makes sure anchor point (parent) and object (child) maintain relative distance
     public void fixPosition()
     {
         transform.position = defaultPosition + transform.parent.position;

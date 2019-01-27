@@ -69,7 +69,7 @@ public class PickupController : MonoBehaviour
                 holdOffset += .25f;
             else if (Input.GetAxis("Mouse ScrollWheel") < 0)
                 holdOffset -= .25f;
-            holdOffset = Mathf.Clamp(holdOffset, 0f, 3f);
+            holdOffset = Mathf.Clamp(holdOffset, 0f, 5f);
             hold(ray.GetPoint(4f + holdOffset));
         }
     }

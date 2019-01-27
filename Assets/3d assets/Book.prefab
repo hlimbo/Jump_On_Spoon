@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1845492991412827955}
   - component: {fileID: 1845492991412827956}
   - component: {fileID: 1845492991412827957}
-  - component: {fileID: 1845492991412827954}
   m_Layer: 0
   m_Name: Cube (5)
   m_TagString: Untagged
@@ -59,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 67c5dd648a01a3a49b86d7490eb98412, type: 2}
+  - {fileID: 2100000, guid: 6216b2ff26d72b04b9e48fb332baab98, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,20 +91,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1845492991412827954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1845492991412827959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d31975d8caec4d349ade9514d2bbe6e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickupable: 0
-  withinRange: 0
 --- !u!1 &1845492991625460975
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +103,6 @@ GameObject:
   - component: {fileID: 1845492991625460971}
   - component: {fileID: 1845492991625460972}
   - component: {fileID: 1845492991625460973}
-  - component: {fileID: 1845492991625460970}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -198,20 +182,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1845492991625460970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1845492991625460975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d31975d8caec4d349ade9514d2bbe6e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickupable: 0
-  withinRange: 0
 --- !u!1 &1845492992156413005
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +245,6 @@ GameObject:
   - component: {fileID: 1845492992644811040}
   - component: {fileID: 1845492992644811041}
   - component: {fileID: 1845492992644811042}
-  - component: {fileID: 1845492992644811071}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -322,7 +291,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 67c5dd648a01a3a49b86d7490eb98412, type: 2}
+  - {fileID: 2100000, guid: 6216b2ff26d72b04b9e48fb332baab98, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -355,20 +324,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1845492992644811071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1845492992644811044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d31975d8caec4d349ade9514d2bbe6e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickupable: 0
-  withinRange: 0
 --- !u!1 &1845492992944247506
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,7 +336,6 @@ GameObject:
   - component: {fileID: 1845492992944247470}
   - component: {fileID: 1845492992944247471}
   - component: {fileID: 1845492992944247504}
-  - component: {fileID: 1845492992944247469}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -428,7 +382,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 67c5dd648a01a3a49b86d7490eb98412, type: 2}
+  - {fileID: 2100000, guid: 6216b2ff26d72b04b9e48fb332baab98, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -461,17 +415,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1845492992944247469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1845492992944247506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d31975d8caec4d349ade9514d2bbe6e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickupable: 0
-  withinRange: 0

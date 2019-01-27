@@ -37,6 +37,7 @@ public class PickupController : MonoBehaviour
                     Debug.Log(holdItem.layer);
                     holdItem.GetComponent<Rigidbody>().isKinematic = true;
                     holding = true;
+                    //holdItem.GetComponent<Item>().transparent();
                 }
                 else if (Input.GetMouseButtonDown(0) && holding)
                 {
@@ -50,8 +51,7 @@ public class PickupController : MonoBehaviour
         }
         if (Physics.Raycast(ray, out hit, 6f) && Input.GetMouseButton(1) && hit.transform.GetComponent<Rigidbody>())
         {
-            hit.transform.gameObject.GetComponentInParent<Rigidbody>().AddForce(transform.forward * thrust);
-            Debug.Log("pushin");
+            hit.transform.gameObject.GetComponentInParent<Rigidbody>().AddForce(new Vector3(transform.forward.x, 0f, transform.forward.z) * thrust);
         }
         else if (item)
         {
@@ -71,6 +71,7 @@ public class PickupController : MonoBehaviour
 
 	void hold(Vector3 holdPosition)
 	{
+        
 		holdItem.transform.parent.transform.position = holdPosition;
         holdItem.transform.rotation = Quaternion.Euler(0,0,0);
         holdItem.GetComponent<Item>().fixPosition();

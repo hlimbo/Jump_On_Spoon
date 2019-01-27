@@ -17,11 +17,12 @@ public class Die : MonoBehaviour
     {
         rfpc = GetComponent<RigidbodyFirstPersonController>();
         rb = GetComponent<Rigidbody>();
-        canvas = FindObjectOfType<Canvas>();
+        
     }
 
     private void Start()
     {
+        canvas = FindObjectOfType<Canvas>();
         canvas.gameObject.SetActive(false);
         Button butt = canvas.GetComponentInChildren<Button> ();
         butt.onClick.AddListener (() =>

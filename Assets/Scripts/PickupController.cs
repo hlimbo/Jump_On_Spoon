@@ -5,46 +5,76 @@ using UnityEngine;
 
 public class PickupController : MonoBehaviour
 {
-    Camera camera;
-	GameObject holdItem;
+    public Camera camera;
+    public float thrust;
+
+    float holdOffset = 0;
+    
+    Item item;
+    GameObject holdItem;
 	bool holding = false;
     // Start is called before the first frame update
     void Start()
-    {
-        camera = GetComponent<Camera>();
+    { 
+        item = null;
     }
 
     void Update()
     {
         Ray ray = new Ray(transform.position, camera.transform.forward);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, 2.5f))
+        if (Physics.Raycast(ray, out hit, 6f) && hit.transform.GetComponent<Item>())
         {
-			Item item = hit.transform.GetComponent<Item>();
-			if (item.pickupable) {
-				item.withinRange = true;
-				if (Input.GetMouseButtonDown (0) && !holding) 
-				{
-					holdItem = item.gameObject;
-					holdItem.GetComponent<Rigidbody>().isKinematic = true;
-					holding = true;
-				}
-				else if(Input.GetMouseButtonDown (0) && holding)
-				{
-					holdItem.GetComponent<Rigidbody>().isKinematic = false;
-					holding = false;
-					holdItem = null;
-				}
-			}
+            item = hit.transform.GetComponent<Item>();
+            if (item.pickupable)
+            {
+                item.withinRange = true;
+                item.highlight();
+                if (Input.GetMouseButtonDown(0) && !holding)
+                {
+                    holdItem = item.gameObject;
+                    holdItem.layer = 13;
+                    Debug.Log(holdItem.layer);
+                    holdItem.GetComponent<Rigidbody>().isKinematic = true;
+                    holding = true;
+                    //holdItem.GetComponent<Item>().transparent();
+                }
+                else if (Input.GetMouseButtonDown(0) && holding)
+                {
+                    holdItem.layer = 12;
+                    holdItem.GetComponent<Rigidbody>().isKinematic = false;
+                    holding = false;
+                    holdItem = null;
+                }
+            }
+            
         }
-		hold (ray.GetPoint(1.75f));
+        if (Physics.Raycast(ray, out hit, 6f) && Input.GetMouseButton(1) && hit.transform.GetComponent<Rigidbody>())
+        {
+            hit.transform.gameObject.GetComponentInParent<Rigidbody>().AddForce(new Vector3(transform.forward.x, 0f, transform.forward.z) * thrust);
+        }
+        else if (item)
+        {
+            item.standardize();
+            item = null;
+        }
+        if (holding)
+        {
+            if (Input.GetAxis("Mouse ScrollWheel") > 0)
+                holdOffset += .25f;
+            else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+                holdOffset -= .25f;
+            holdOffset = Mathf.Clamp(holdOffset, 0f, 4f);
+            hold(ray.GetPoint(2f + holdOffset));
+        }
     }
 
 	void hold(Vector3 holdPosition)
 	{
-		if (holding) {
-			holdItem.transform.position = holdPosition;
-		}
+        
+		holdItem.transform.parent.transform.position = holdPosition;
+        holdItem.transform.rotation = Quaternion.Euler(0,0,0);
+        holdItem.GetComponent<Item>().fixPosition();
 	}
 			
 }

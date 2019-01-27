@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 5754235108321988526}
   - component: {fileID: 4848629337118796562}
   - component: {fileID: 8106453476138449314}
+  - component: {fileID: 1677207796744359660}
   m_Layer: 0
   m_Name: PlayerSSS
   m_TagString: Player
@@ -193,7 +194,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6061615082604664316}
-  m_LocalRotation: {x: -0, y: 0.7087134, z: -0, w: -0.7054965}
+  m_LocalRotation: {x: 0, y: 0.70871556, z: -0, w: -0.70549434}
   m_LocalPosition: {x: 94.5, y: 158.4, z: -83.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -323,6 +324,20 @@ MonoBehaviour:
   airSpeed: 1
   oldTramp: {fileID: 0}
   bounces: 0
+--- !u!114 &1677207796744359660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6061615082604664316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcabd5448e60de84189e4f4e71f6350f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 9013374659590543506}
+  thrust: 0
 --- !u!1 &8002818718245998816
 GameObject:
   m_ObjectHideFlags: 0

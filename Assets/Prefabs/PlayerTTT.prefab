@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dieVelocity: 35
+  canvas: {fileID: 725942192, guid: b6ca834425690ac448b37cfc15d82e33, type: 3}
 --- !u!114 &5235958640456370280
 MonoBehaviour:
   m_ObjectHideFlags: 0

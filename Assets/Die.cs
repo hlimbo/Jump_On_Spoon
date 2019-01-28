@@ -10,19 +10,17 @@ public class Die : MonoBehaviour
     private float v;
     private RigidbodyFirstPersonController rfpc;
     private Rigidbody rb;
-    private Canvas canvas;
+    public GameOverManager canvas;
     private bool respawned = false;
 
     private void Awake()
     {
         rfpc = GetComponent<RigidbodyFirstPersonController>();
         rb = GetComponent<Rigidbody>();
-        
     }
 
     private void Start()
     {
-        canvas = FindObjectOfType<Canvas>();
         canvas.gameObject.SetActive(false);
         Button butt = canvas.GetComponentInChildren<Button> ();
         butt.onClick.AddListener (() =>

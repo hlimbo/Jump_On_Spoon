@@ -4671,6 +4671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dieVelocity: 35
+  canvas: {fileID: 5038508038097789974}
 --- !u!1001 &960943094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9571,6 +9572,7 @@ GameObject:
   - component: {fileID: 5038508038097789968}
   - component: {fileID: 5038508038097789971}
   - component: {fileID: 5038508038097789970}
+  - component: {fileID: 5038508038097789974}
   m_Layer: 5
   m_Name: GameOver
   m_TagString: Untagged
@@ -9578,6 +9580,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5038508038097789974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5038508038097789973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82411902fbb383c4aa3cd59f8f879fbf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &5038508038194590698
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ public class GameOverManager : MonoBehaviour
 {
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         gameObject.SetActive(true);
     }
     private void OnLevelWasLoaded(int level)

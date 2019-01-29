@@ -310,5 +310,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
     }
 }
-// not fan of this architecture. Want to see walking function or delegate or event where, when something is walking, I can call everything that needs to happen like
-// audio, animation, affectos on other objects, etc. Makes easier to understand and build off of if I want something else to happen while walking is true. 
+// not fan of this architecture. Unclear when a mechanic is supposed to take place or what script changes lead to that mechanic. Clear line of reasoning is imperative.
+// Want to see walking function or delegate or event where, when something is walking, I can call everything that needs to happen (i.e. audio, animation, etc.) 
+// Makes easier to understand and build off of if I want something else to happen while walking is true. 

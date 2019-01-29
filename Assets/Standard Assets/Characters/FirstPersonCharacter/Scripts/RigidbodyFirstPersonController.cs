@@ -89,7 +89,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private CapsuleCollider m_Capsule;
         private float m_YRotation;
         private Vector3 m_GroundContactNormal;
-        private bool m_Jump, m_PreviouslyGrounded, m_Jumping, m_IsGrounded;
+        private bool m_Jump, m_PreviouslyGrounded, m_Jumping, m_IsGrounded, m_isWalking;
 
 
         public Vector3 Velocity
@@ -150,6 +150,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             //mouseLook.LookRotation (t, cam.transform);
         }
 
+        // overrides normal rbfc jump for trampoline jump
         public void OverrideJump (float f, float overrideDrag)
         {
             m_IsGrounded = false;
@@ -164,6 +165,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 
+        #region FIXED UPDATE PHYSICS
         private void FixedUpdate()
         {
             GroundCheck();
@@ -189,6 +191,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 }
             }
 
+            // physics adjustments for jump and trampolining jump
             if (m_IsGrounded)
             {
                 if (!trampolining)
@@ -196,12 +199,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     m_RigidBody.drag = 5f;
                 }
 
+                // jumping physics adjustments
                 if (m_Jump)
                 {
                     if (!trampolining) m_RigidBody.drag = 0f;
                     m_RigidBody.velocity = new Vector3(m_RigidBody.velocity.x, 0f, m_RigidBody.velocity.z);
                     m_RigidBody.AddForce(new Vector3(0f, movementSettings.JumpForce, 0f), ForceMode.Impulse);
                     m_Jumping = true;
+
                 }
 
                 if (!m_Jumping && Mathf.Abs(input.x) < float.Epsilon && Mathf.Abs(input.y) < float.Epsilon && m_RigidBody.velocity.magnitude < 1f)
@@ -220,7 +225,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             m_Jump = false;
         }
-
+        #endregion
 
         private float SlopeMultiplier()
         {
@@ -243,10 +248,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 
-
         private Vector2 GetInput()
-        {
-            
+        {          
             Vector2 input = new Vector2
                 {
                     x = CrossPlatformInputManager.GetAxis("Horizontal"),
@@ -255,7 +258,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			movementSettings.UpdateDesiredTargetSpeed(input);
             return input;
         }
-
 
         private void RotateView()
         {
@@ -301,5 +303,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             get { return m_IsGrounded; }
         }
+
+        public bool IsWalking
+        {
+            get {return m_isWalking;}
+        }
     }
 }
+// not fan of this architecture. Want to see walking function or delegate or event where, when something is walking, I can call everything that needs to happen like
+// audio, animation, affectos on other objects, etc. Makes easier to understand and build off of if I want something else to happen while walking is true. 

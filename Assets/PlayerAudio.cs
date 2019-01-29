@@ -17,6 +17,9 @@ public class PlayerAudio : MonoBehaviour
         rfpc = GetComponent<RigidbodyFirstPersonController>();
         audio = GetComponent<AudioSource>();
     }
+
+    
+
     // Update is called once per frame
     void Update()
     {
@@ -26,6 +29,7 @@ public class PlayerAudio : MonoBehaviour
             {
                 if (rfpc.Grounded)
                 {
+                    audio.pitch = Random.Range(lowPitchRange, highPitchRange);
                     audio.PlayOneShot(sounds[Random.Range(0, 3)]);
                 }
             }

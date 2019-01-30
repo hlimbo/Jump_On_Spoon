@@ -11,7 +11,6 @@ public class Item : MonoBehaviour
     Vector3 defaultPosition;
     private void Start()
     {
-        defaultPosition = transform.position - transform.parent.position;
         mat = GetComponent<MeshRenderer>().material;
     }
 
@@ -31,10 +30,4 @@ public class Item : MonoBehaviour
         GetComponent<MeshRenderer>().material = transparentMat;
     }
 
-    //// Makes sure anchor point (parent) and object (child) maintain relative distance
-    public void fixPosition(Vector3 v)
-    {
-        v.Normalize();
-        transform.position = transform.parent.position + v * defaultPosition.magnitude;
-    }
 }

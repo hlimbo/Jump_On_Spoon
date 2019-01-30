@@ -28,7 +28,7 @@ public class PickupController : MonoBehaviour
         Debug.DrawRay(camera.transform.position, camera.transform.forward, Color.black, .01f, false);
         RaycastHit hit;
         
-        if (Physics.Raycast(ray, out hit, 6f) && hit.transform.GetComponent<Item>())
+        if (Physics.Raycast(ray, out hit, 10f) && hit.transform.GetComponent<Item>())
         {
             item = hit.transform.GetComponent<Item>();
             if (item.pickupable)
@@ -87,8 +87,8 @@ public class PickupController : MonoBehaviour
 	{
         holdItem.transform.rotation = transform.rotation;
 		holdItem.transform.parent.transform.position = holdPosition;
-        foreach (Transform i in holdItem.transform.parent)
-            i.GetComponent<Item>().fixPosition(transform.forward);
+        //foreach (Transform i in holdItem.transform.parent)
+        //    i.GetComponent<Item>().fixPosition(transform.forward);
 	}
 			
 }

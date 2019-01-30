@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//INSTRUCTIONS
+//1. Place parent anchor point where you would like item to be held
+//2. Place item script on child component
+//3. The Parent component's Z-axis must point towards item
 public class Item : MonoBehaviour
 {
     public bool pickupable;

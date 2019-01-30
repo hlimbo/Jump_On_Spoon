@@ -22,19 +22,8 @@ public class CheckpointTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (acitvateFloor)
-            {
-                print ("activating death floors");
-                BathroomFloor[] floors = FindObjectsOfType<BathroomFloor> ();
-                foreach (var f in floors)
-                {
-                    f.kill = true;
-                }
-            }
-            else
-            {
                 SpawnPoint.ActivateSpawnPoint (spawn);
-            }
+            
         }
     }
 }

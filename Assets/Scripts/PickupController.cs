@@ -87,8 +87,7 @@ public class PickupController : MonoBehaviour
 	{
         holdItem.transform.rotation = transform.rotation;
 		holdItem.transform.parent.transform.position = holdPosition;
-        //foreach (Transform i in holdItem.transform.parent)
-        //    i.GetComponent<Item>().fixPosition(transform.forward);
+
 	}
 			
 }

@@ -1,42 +1,46 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityStandardAssets.Characters.FirstPerson;
 
 public class PlayerAudio : MonoBehaviour
 {
+    public static PlayerAudio instance;
 
+    public AudioSource walkRunAudioSource;
     public AudioClip[] sounds;
-    public float lowPitchRange = .95f;
-    public float highPitchRange = 1.05f;
+    public float walkLowPitchRange = .95f;
+    public float walkHighPitchRange = 1.05f;
+    public float runLowPitchRange;
+    public float runHighPitchRange;
 
-    RigidbodyFirstPersonController rfpc;
-    AudioSource audio;
-    private void Start()
+
+    private void OnEnable()
     {
-        rfpc = GetComponent<RigidbodyFirstPersonController>();
-        audio = GetComponent<AudioSource>();
+        walkRunAudioSource = GetComponent<AudioSource>();
+
+        if (instance == null)
+            instance = this;
+        DontDestroyOnLoad(instance);
     }
 
-    
-
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        if(rfpc.Velocity.sqrMagnitude > 0f)
-        {
-            if(!audio.isPlaying)
-            {
-                if (rfpc.Grounded)
-                {
-                    audio.pitch = Random.Range(lowPitchRange, highPitchRange);
-                    audio.PlayOneShot(sounds[Random.Range(0, 3)]);
-                }
-            }
-        }
-        else
-        {
-            audio.Stop();
-        }
+        instance = null;
+    }
+
+    public void WalkingAudio()
+    {
+        walkRunAudioSource.pitch = Random.Range(walkLowPitchRange, walkHighPitchRange);
+        walkRunAudioSource.PlayOneShot(sounds[Random.Range(0, 3)]);
+
+        // need audio.stop???
+    }
+
+    public void RunningAudio()
+    {
+        walkRunAudioSource.pitch = Random.Range(runLowPitchRange, walkHighPitchRange);
+        walkRunAudioSource.PlayOneShot(sounds[Random.Range(0, 3)]);
     }
 }
+
+

@@ -7,13 +7,16 @@ using UnityEngine;
 //3. The Parent component's Z-axis must point towards item
 public class Item : MonoBehaviour
 {
+    private Vector3 defaultPosition;
+    private Quaternion defaultRotation;
     public bool pickupable;
     public bool withinRange;
     public Material transparentMat;
     Material mat;
-    Vector3 defaultPosition;
     private void Start()
     {
+        defaultPosition = transform.position;
+        defaultRotation = transform.rotation;
         mat = GetComponent<MeshRenderer>().material;
     }
 
@@ -31,6 +34,12 @@ public class Item : MonoBehaviour
     public void transparent()
     {
         GetComponent<MeshRenderer>().material = transparentMat;
+    }
+
+    public void reset()
+    {
+        transform.position = defaultPosition;
+        transform.rotation = defaultRotation;
     }
 
 }

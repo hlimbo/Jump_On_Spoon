@@ -12,9 +12,10 @@ public class Die : MonoBehaviour
     private Rigidbody rb;
     public GameOverManager canvas;
     private bool respawned = false;
-
+    private Item[] items;
     private void Awake()
     {
+        items = FindObjectsOfType<Item>();
         rfpc = GetComponent<RigidbodyFirstPersonController>();
         rb = GetComponent<Rigidbody>();
     }
@@ -70,6 +71,8 @@ public class Die : MonoBehaviour
     public void Spawn()
     {
         GetComponent<Rigidbody>().isKinematic = false;
+        foreach (Item i in items)
+            i.reset();
         respawned = true;
         SpawnPoint.Respawn(transform);
         canvas.gameObject.SetActive(false);

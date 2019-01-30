@@ -12,9 +12,10 @@ public class Die : MonoBehaviour
     private Rigidbody rb;
     public GameOverManager canvas;
     private bool respawned = false;
-
+    private Item[] items;
     private void Awake()
     {
+        items = FindObjectsOfType<Item>();
         rfpc = GetComponent<RigidbodyFirstPersonController>();
         rb = GetComponent<Rigidbody>();
     }
@@ -27,15 +28,6 @@ public class Die : MonoBehaviour
         {
             Spawn ();
         });
-    }
-
-    private void Update()
-    {
-        //if (rfpc.Grounded && v < -dieVelocity)
-        //{
-        //    canvas.gameObject.SetActive(true);
-        //}
-        v = rb.velocity.y < v ? rb.velocity.y : v;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -58,30 +50,29 @@ public class Die : MonoBehaviour
                 Spawn ();
                 yield break;
             }
-            else if (Input.GetKeyDown (KeyCode.Escape))
-            {
-                canvas.gameObject.SetActive (false);
-            }
             yield return null;
         }
     }
 
     private void OnTriggerEnter(Collider other) {
         print("HIt Trig" + other.name);
-        if(other.gameObject.name == "KillerRat")
+        if (other.gameObject.CompareTag("Killer"))
         {
-            print("Rat will kill me");
             die();
         }
     }
 
     public void die()
     {
+        GetComponent<Rigidbody>().isKinematic = true;
         canvas.gameObject.SetActive(true);
     }
 
     public void Spawn()
     {
+        GetComponent<Rigidbody>().isKinematic = false;
+        foreach (Item i in items)
+            i.reset();
         respawned = true;
         SpawnPoint.Respawn(transform);
         canvas.gameObject.SetActive(false);

@@ -1,17 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//INSTRUCTIONS
+//1. Place parent anchor point where you would like item to be held
+//2. Place item script on child component
+//3. The Parent component's Z-axis must point towards item
 public class Item : MonoBehaviour
 {
+    private Vector3 defaultPosition;
+    private Quaternion defaultRotation;
     public bool pickupable;
     public bool withinRange;
     public Material transparentMat;
     Material mat;
-    Vector3 defaultPosition;
     private void Start()
     {
-        defaultPosition = transform.position - transform.parent.position;
+        defaultPosition = transform.position;
+        defaultRotation = transform.rotation;
         mat = GetComponent<MeshRenderer>().material;
     }
 
@@ -31,9 +36,10 @@ public class Item : MonoBehaviour
         GetComponent<MeshRenderer>().material = transparentMat;
     }
 
-    // Makes sure anchor point (parent) and object (child) maintain relative distance
-    public void fixPosition()
+    public void reset()
     {
-        transform.position = defaultPosition + transform.parent.position;
+        transform.position = defaultPosition;
+        transform.rotation = defaultRotation;
     }
+
 }

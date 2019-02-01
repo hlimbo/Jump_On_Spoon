@@ -11,6 +11,8 @@ public class PickupController : MonoBehaviour
     Ray ray;
     Item item;
     GameObject holdItem;
+    public GameObject rightClick;
+    public GameObject leftClick;
 	bool holding = false;
     float holdOffset = 0;
     // Start is called before the first frame update
@@ -27,14 +29,16 @@ public class PickupController : MonoBehaviour
         ray.direction = camera.transform.forward;
         Debug.DrawRay(camera.transform.position, camera.transform.forward, Color.black, .01f, false);
         RaycastHit hit;
-        
-        if (Physics.Raycast(ray, out hit, 10f) && hit.transform.GetComponent<Item>())
+        leftClick.SetActive(false);
+        rightClick.SetActive(false);
+        if (Physics.Raycast(ray, out hit, 12f) && hit.transform.GetComponent<Item>())
         {
             item = hit.transform.GetComponent<Item>();
             if (item.pickupable)
             {
                 item.withinRange = true;
                 item.highlight();
+                leftClick.SetActive(true);
                 if (Input.GetMouseButtonDown(0) && !holding)
                 {
                     holdItem = item.gameObject;
@@ -58,14 +62,16 @@ public class PickupController : MonoBehaviour
         
 
         // Push mechanic
-        if (Physics.Raycast(ray, out hit, 6f) && Input.GetMouseButtonDown(1) && hit.transform.GetComponent<Rigidbody>())
+        if (Physics.Raycast(ray, out hit, 12f) && hit.transform.GetComponent<Rigidbody>())
         {
-            hit.transform.gameObject.GetComponentInParent<Rigidbody>().AddForce(new Vector3(transform.forward.x, 0f, transform.forward.z) * thrust);
+            rightClick.SetActive(true);
+            if (Input.GetMouseButtonDown(1))
+                hit.transform.gameObject.GetComponentInParent<Rigidbody>().AddForce(new Vector3(transform.forward.x, 0f, transform.forward.z) * thrust);
         }
         
         if (holding)
         {
-            
+            leftClick.SetActive(true);
             if (Input.GetAxis("Mouse ScrollWheel") > 0)
                 holdOffset += .25f;
             else if (Input.GetAxis("Mouse ScrollWheel") < 0)
@@ -87,7 +93,7 @@ public class PickupController : MonoBehaviour
 	{
         holdItem.transform.rotation = transform.rotation;
 		holdItem.transform.parent.transform.position = holdPosition;
-
+        holdItem.GetComponent<Item>().fixPosition();
 	}
 			
 }

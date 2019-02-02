@@ -1363,7 +1363,7 @@ PrefabInstance:
     - target: {fileID: 4562604563202094536, guid: 3d7991217afa10a4586c43747315ab1d,
         type: 3}
       propertyPath: movementSettings.JumpForce
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4562604563202094536, guid: 3d7991217afa10a4586c43747315ab1d,
         type: 3}

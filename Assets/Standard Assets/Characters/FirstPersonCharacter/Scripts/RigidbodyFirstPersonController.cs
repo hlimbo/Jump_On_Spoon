@@ -92,6 +92,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_YRotation;
         private Vector3 m_GroundContactNormal;
         private bool m_Jump, m_PreviouslyGrounded, m_Jumping, m_IsGrounded, m_isWalking;
+        private float m_NormalDrag;
 
 
         public Vector3 Velocity
@@ -127,8 +128,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_RigidBody = GetComponent<Rigidbody>();
             m_Capsule = GetComponent<CapsuleCollider>();
             mouseLook.Init (transform, cam.transform);
+            m_NormalDrag = m_RigidBody.drag;
         }
-
 
         private void Update()
         {
@@ -182,12 +183,23 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 desiredMove.x = desiredMove.x*movementSettings.CurrentTargetSpeed;
                 desiredMove.z = desiredMove.z*movementSettings.CurrentTargetSpeed;
                 desiredMove.y = desiredMove.y*movementSettings.CurrentTargetSpeed;
-                if (m_RigidBody.velocity.sqrMagnitude <
-                    (movementSettings.CurrentTargetSpeed*movementSettings.CurrentTargetSpeed))
+                // on a slope
+                if ((m_RigidBody.velocity.sqrMagnitude <
+                    (movementSettings.CurrentTargetSpeed*movementSettings.CurrentTargetSpeed)) && Mathf.Abs(SlopeMultiplier()) < 0.9f)
                 {
-                    m_RigidBody.AddForce(desiredMove*SlopeMultiplier(), ForceMode.Impulse);
+                    print("sloped move");
+                    m_RigidBody.AddForce(desiredMove * SlopeMultiplier(), ForceMode.Impulse);
+                    print(SlopeMultiplier());
                 }
-                else if (trampolining)
+                // not on a slope
+                else if (m_RigidBody.velocity.sqrMagnitude <
+                    (movementSettings.CurrentTargetSpeed * movementSettings.CurrentTargetSpeed))
+                {
+                    print("not sloped move");
+                    m_RigidBody.AddForce(desiredMove, ForceMode.Impulse);
+                    print(SlopeMultiplier());
+                }
+                    else if (trampolining)
                 {
                     m_RigidBody.AddForce (desiredMove * SlopeMultiplier (), ForceMode.Impulse);
                 }
@@ -198,13 +210,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 if (!trampolining)
                 {
-                    m_RigidBody.drag = 5f;
+                    m_RigidBody.drag = m_NormalDrag;
                 }
 
                 // jumping physics adjustments
                 if (m_Jump)
                 {
-                    if (!trampolining) m_RigidBody.drag = 0f;
+                    if (!trampolining) m_RigidBody.drag = m_NormalDrag;
                     m_RigidBody.velocity = new Vector3(m_RigidBody.velocity.x, 0f, m_RigidBody.velocity.z);
                     m_RigidBody.AddForce(new Vector3(0f, movementSettings.JumpForce, 0f), ForceMode.Impulse);
                     m_Jumping = true;
@@ -218,7 +230,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             else
             {
-                if (!trampolining) m_RigidBody.drag = 0f;
+                if (!trampolining) m_RigidBody.drag = m_NormalDrag;
 
                 if (m_PreviouslyGrounded && !m_Jumping)
                 {
@@ -288,7 +300,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
             if (Physics.SphereCast(transform.position, m_Capsule.radius * (1.0f - advancedSettings.shellOffset), Vector3.down, out hitInfo,
                                    ((m_Capsule.height/2f) - m_Capsule.radius) + advancedSettings.groundCheckDistance, Physics.AllLayers, QueryTriggerInteraction.Ignore))
             {
-                print("HitGround");
                 m_IsGrounded = true;
                 m_GroundContactNormal = hitInfo.normal;
             }
@@ -313,12 +324,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             get {return m_isWalking;}
         }
 
-        //private void OnDrawGizmos()
-        //{
-        //    //Gizmos.DrawWireSphere(transform.position, m_Capsule.radius * (1.0f - advancedSettings.shellOffset));
-        //}
     }
 }
 // not fan of this architecture. Unclear when a mechanic is supposed to take place or what script changes lead to that mechanic. Clear line of reasoning is imperative.
 // Want to see walking function or delegate or event where, when something is walking, I can call everything that needs to happen (i.e. audio, animation, etc.) 
 // Makes easier to understand and build off of if I want something else to happen while walking is true. 
+// rfpc stuck on slopes using addForce bug - https://forum.unity.com/threads/character-move-on-slope-problem.311112/

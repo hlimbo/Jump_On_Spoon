@@ -51,9 +51,9 @@ public class Trampoliner : MonoBehaviour
         }
         else
         {
-            rfpc.movementSettings.ForwardSpeed = 8f;
-            rfpc.movementSettings.BackwardSpeed = 4f;
-            rfpc.movementSettings.StrafeSpeed = 4f;
+            rfpc.movementSettings.ForwardSpeed = 6f;
+            rfpc.movementSettings.BackwardSpeed = 3f;
+            rfpc.movementSettings.StrafeSpeed = 3f;
 
             rfpc.trampolining = false;
             bounces = 0;

@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 6316659903674090499}
   - component: {fileID: 5235958640456370280}
   - component: {fileID: 1956911607407159924}
-  - component: {fileID: 7282065565144728367}
   - component: {fileID: 506740025}
+  - component: {fileID: 6224166039419040110}
   m_Layer: 0
   m_Name: PlayerTTT
   m_TagString: Player
@@ -49,8 +49,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2797368077312938986}
   serializedVersion: 2
-  m_Mass: 2
-  m_Drag: 0
+  m_Mass: 5
+  m_Drag: 0.75
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -100,12 +100,12 @@ MonoBehaviour:
   trampolining: 0
   cam: {fileID: 7006532490320311004}
   movementSettings:
-    ForwardSpeed: 8
-    BackwardSpeed: 4
-    StrafeSpeed: 4
-    RunMultiplier: 2
+    ForwardSpeed: 20
+    BackwardSpeed: 3
+    StrafeSpeed: 3
+    RunMultiplier: 1.5
     RunKey: 304
-    JumpForce: 25
+    JumpForce: 40
     SlopeCurveModifier:
       serializedVersion: 2
       m_Curve:
@@ -119,8 +119,8 @@ MonoBehaviour:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0
-        value: 1
+        time: -0.41281128
+        value: 1.013588
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -128,8 +128,8 @@ MonoBehaviour:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 90
-        value: 0
+        time: 19.911774
+        value: 0.013591977
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -367,18 +367,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7282065565144728367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2797368077312938986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ca4cb192568dba4fae8fbd7736280d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &506740025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,6 +381,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dieVelocity: 35
   canvas: {fileID: 0}
+--- !u!114 &6224166039419040110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2797368077312938986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3de93b7d60738e46a09bbce42f00ed8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRigidBody: {fileID: 5763729576955094421}
+  rayLength: 0.2
+  climbSpeed: 0
 --- !u!1 &3392366969324009751
 GameObject:
   m_ObjectHideFlags: 0

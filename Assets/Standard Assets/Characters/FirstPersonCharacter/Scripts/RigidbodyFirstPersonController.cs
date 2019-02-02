@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
@@ -281,11 +282,13 @@ namespace UnityStandardAssets.Characters.FirstPerson
         /// sphere cast down just beyond the bottom of the capsule to see if the capsule is colliding round the bottom
         private void GroundCheck()
         {
+            // hereCast(Vector3 origin, float radius, Vector3 direction, out RaycastHit hitInfo, float maxDistance = Mathf.Infinity, int layerMask = 
             m_PreviouslyGrounded = m_IsGrounded;
             RaycastHit hitInfo;
             if (Physics.SphereCast(transform.position, m_Capsule.radius * (1.0f - advancedSettings.shellOffset), Vector3.down, out hitInfo,
                                    ((m_Capsule.height/2f) - m_Capsule.radius) + advancedSettings.groundCheckDistance, Physics.AllLayers, QueryTriggerInteraction.Ignore))
             {
+                print("HitGround");
                 m_IsGrounded = true;
                 m_GroundContactNormal = hitInfo.normal;
             }
@@ -309,6 +312,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
         {
             get {return m_isWalking;}
         }
+
+        //private void OnDrawGizmos()
+        //{
+        //    //Gizmos.DrawWireSphere(transform.position, m_Capsule.radius * (1.0f - advancedSettings.shellOffset));
+        //}
     }
 }
 // not fan of this architecture. Unclear when a mechanic is supposed to take place or what script changes lead to that mechanic. Clear line of reasoning is imperative.

@@ -14,6 +14,5 @@ public class LevelGoal : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<RigidbodyFirstPersonController>())
             gm.LoadNextScene();
-        Debug.Log("Triggered");
     }
 }

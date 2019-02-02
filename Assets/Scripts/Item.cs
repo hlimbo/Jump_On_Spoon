@@ -8,6 +8,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     private Vector3 defaultPosition;
+    private Vector3 defaultRelative;
     private Quaternion defaultRotation;
     public bool pickupable;
     public bool withinRange;
@@ -15,6 +16,8 @@ public class Item : MonoBehaviour
     Material mat;
     private void Start()
     {
+        if (pickupable)
+            defaultRelative = transform.position - transform.parent.position;
         defaultPosition = transform.position;
         defaultRotation = transform.rotation;
         mat = GetComponent<MeshRenderer>().material;
@@ -40,6 +43,11 @@ public class Item : MonoBehaviour
     {
         transform.position = defaultPosition;
         transform.rotation = defaultRotation;
+    }
+
+    public void fixPosition()
+    {
+        transform.position = transform.parent.position + defaultRelative;
     }
 
 }

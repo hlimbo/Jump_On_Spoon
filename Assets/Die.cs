@@ -38,7 +38,7 @@ public class Die : MonoBehaviour
             StartCoroutine (WaitForReturn ());
         }
         v = 0;
-    }
+    } 
 
     IEnumerator WaitForReturn ()
     {

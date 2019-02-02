@@ -84,7 +84,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 7006532490320311004}
-  thrust: 25
+  thrust: 500
+  rightClick: {fileID: 0}
+  leftClick: {fileID: 0}
 --- !u!114 &4562604563202094536
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     private float timeSinceStart;
 
     #region UNITY CALLBACKS
-
     private void Update ()
     {
         if (Input.GetKey (KeyCode.LeftShift) && Input.GetKeyDown (KeyCode.L))
@@ -62,7 +61,12 @@ public class GameManager : MonoBehaviour
 
     public void EndGame()
     {
-        //creditsPanel.SetActive(true);
+        LoadScene("Credits");
         print(timeSinceStart);
+    }
+
+    public void Quit()
+    {
+        Application.Quit(1);
     }
 }

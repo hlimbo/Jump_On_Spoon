@@ -20,7 +20,7 @@ public class PlayerAudio : MonoBehaviour
 
         if (instance == null)
             instance = this;
-        DontDestroyOnLoad(instance);
+        //DontDestroyOnLoad(instance);
     }
 
     private void OnDisable()

@@ -187,17 +187,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 if ((m_RigidBody.velocity.sqrMagnitude <
                     (movementSettings.CurrentTargetSpeed*movementSettings.CurrentTargetSpeed)) && Mathf.Abs(SlopeMultiplier()) < 0.9f)
                 {
-                    print("sloped move");
+                    //print("sloped move");
                     m_RigidBody.AddForce(desiredMove * SlopeMultiplier(), ForceMode.Impulse);
-                    print(SlopeMultiplier());
+                    //print(SlopeMultiplier());
                 }
                 // not on a slope
                 else if (m_RigidBody.velocity.sqrMagnitude <
                     (movementSettings.CurrentTargetSpeed * movementSettings.CurrentTargetSpeed))
                 {
-                    print("not sloped move");
+                    //print("not sloped move");
                     m_RigidBody.AddForce(desiredMove, ForceMode.Impulse);
-                    print(SlopeMultiplier());
+                    //print(SlopeMultiplier());
                 }
                     else if (trampolining)
                 {

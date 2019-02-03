@@ -4018,10 +4018,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSpeeds:
   - 4
-  - 8
-  - 35
-  - 120
-  - 240
+  - 20
+  - 50
+  - 500
+  - 750
 --- !u!4 &798773335 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5503982142773042696, guid: bdc5bed1be9a55e49a8d357962eabbea,
@@ -5500,8 +5500,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 5, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2, y: 23.471832, z: 3.0491562}
+  m_Center: {x: 0, y: 9.235916, z: -1.0245781}
 --- !u!23 &1128064388
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7152,17 +7152,17 @@ PrefabInstance:
     - target: {fileID: 300176245589700681, guid: 3d7991217afa10a4586c43747315ab1d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 267.11423
+      value: -42.46
       objectReference: {fileID: 0}
     - target: {fileID: 300176245589700681, guid: 3d7991217afa10a4586c43747315ab1d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 51.2
+      value: 188.6
       objectReference: {fileID: 0}
     - target: {fileID: 300176245589700681, guid: 3d7991217afa10a4586c43747315ab1d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 279.54144
+      value: 206.5
       objectReference: {fileID: 0}
     - target: {fileID: 300176245589700681, guid: 3d7991217afa10a4586c43747315ab1d,
         type: 3}

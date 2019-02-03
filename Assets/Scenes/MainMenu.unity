@@ -192,14 +192,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1683889274}
-        m_MethodName: LoadNextScene
-        m_Mode: 1
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: BedRoom
           m_BoolArgument: 0
         m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -757,5 +757,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6468318848402342051, guid: 05cd30bb0b51eae4cb778addeb736318,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468318848402341980, guid: 05cd30bb0b51eae4cb778addeb736318,
+        type: 3}
+      propertyPath: level_music.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468318848402341980, guid: 05cd30bb0b51eae4cb778addeb736318,
+        type: 3}
+      propertyPath: level_music.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: e5c79a9366ab89a4eaff7196876b2d2e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05cd30bb0b51eae4cb778addeb736318, type: 3}

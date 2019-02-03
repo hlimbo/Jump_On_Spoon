@@ -41,7 +41,6 @@ public class ClimbScript : MonoBehaviour
         // if topRay is false and botRay is true
 
         Debug.DrawRay(climbReference.position, Vector3.down * rayLength, Color.red);
-
         if (Physics.Raycast(climbReference.position, Vector3.down, out climbReferenceHit, rayLength))
             //(!(Physics.Raycast(topRayOrigin, transform.TransformDirection(Vector3.forward), out topHit, rayLength)) &&
             //    (Physics.Raycast(botRayOrigin, transform.TransformDirection(Vector3.forward), out botHit, rayLength)

@@ -4,7 +4,7 @@ using UnityEngine;
 //INSTRUCTIONS
 //1. Place parent anchor point where you would like item to be held
 //2. Place item script on child component
-//3. The Parent component's Z-axis must point towards item
+//3. The Parent component's Z-axis must point towards item and have a fixed joint to physical object
 public class Item : MonoBehaviour
 {
     private Vector3 defaultPosition;

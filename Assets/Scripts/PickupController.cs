@@ -93,7 +93,6 @@ public class PickupController : MonoBehaviour
 	{
         holdItem.transform.rotation = transform.rotation;
 		holdItem.transform.parent.transform.position = holdPosition;
-        holdItem.GetComponent<Item>().fixPosition();
 	}
 			
 }

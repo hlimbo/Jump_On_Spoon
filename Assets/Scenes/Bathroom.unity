@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -181,6 +181,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5b410c7edac82884abc6feae3995a92e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7993c3bb3f6245c69bf23661590254a, type: 3}
+--- !u!4 &489744894 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 664978603, guid: 3d7991217afa10a4586c43747315ab1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1437406162}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &701524720 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 905915778125452226, guid: b3a9e35135c1ada46b4b3e0875e71744,
@@ -1936,6 +1942,12 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!54 &1379266911 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 5763729576955094421, guid: 3d7991217afa10a4586c43747315ab1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1437406162}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1437406162
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1952,11 +1964,6 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1966029406}
-    - target: {fileID: 2095314774444465649, guid: 3d7991217afa10a4586c43747315ab1d,
-        type: 3}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 300176245589700681, guid: 3d7991217afa10a4586c43747315ab1d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2022,6 +2029,54 @@ PrefabInstance:
       propertyPath: leftClick
       value: 
       objectReference: {fileID: 1966029407}
+    - target: {fileID: 6224166039419040110, guid: 3d7991217afa10a4586c43747315ab1d,
+        type: 3}
+      propertyPath: _LerpVal
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224166039419040110, guid: 3d7991217afa10a4586c43747315ab1d,
+        type: 3}
+      propertyPath: _LerpPosition2Offset
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224166039419040110, guid: 3d7991217afa10a4586c43747315ab1d,
+        type: 3}
+      propertyPath: _PlayerRigidBody
+      value: 
+      objectReference: {fileID: 1379266911}
+    - target: {fileID: 6224166039419040110, guid: 3d7991217afa10a4586c43747315ab1d,
+        type: 3}
+      propertyPath: _ClimbReference
+      value: 
+      objectReference: {fileID: 489744894}
+    - target: {fileID: 6224166039419040110, guid: 3d7991217afa10a4586c43747315ab1d,
+        type: 3}
+      propertyPath: _RayLength
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224166039419040110, guid: 3d7991217afa10a4586c43747315ab1d,
+        type: 3}
+      propertyPath: _LerpPositionToOffset
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6224166039419040110, guid: 3d7991217afa10a4586c43747315ab1d,
+        type: 3}
+      propertyPath: _LerpRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 664978603, guid: 3d7991217afa10a4586c43747315ab1d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 664978603, guid: 3d7991217afa10a4586c43747315ab1d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2095314774444465649, guid: 3d7991217afa10a4586c43747315ab1d,
+        type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d7991217afa10a4586c43747315ab1d, type: 3}
 --- !u!1 &1469332063

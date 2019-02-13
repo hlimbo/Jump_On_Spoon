@@ -1295,8 +1295,24 @@ PrefabInstance:
       propertyPath: leftClick
       value: 
       objectReference: {fileID: 998504322}
+    - target: {fileID: 3168706135258162966, guid: 3d7991217afa10a4586c43747315ab1d,
+        type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 695595264}
+    - target: {fileID: 4562604563202094536, guid: 3d7991217afa10a4586c43747315ab1d,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 695595264}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d7991217afa10a4586c43747315ab1d, type: 3}
+--- !u!20 &695595264 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5646128795860969471, guid: 3d7991217afa10a4586c43747315ab1d,
+    type: 3}
+  m_PrefabInstance: {fileID: 695595263}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &904358182
 GameObject:
   m_ObjectHideFlags: 0

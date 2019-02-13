@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EatPlayer : MonoBehaviour
 {
+    public GameObject WinCanvas;
+
     private void OnTriggerEnter (Collider other)
     {
         if (other.tag == "Player")
@@ -13,17 +15,18 @@ public class EatPlayer : MonoBehaviour
             // Check if kinematic, not just trampolining or something, but stuck to spoon!
             if (body.isKinematic)
             {
-                GameManager gm = FindObjectOfType<GameManager> ();
-                if (gm)
-                {
-                    gm.EndGame ();
-                }
-                else
-                {
-                    body.isKinematic = false;
-                    body.transform.SetParent (null);
-                    StartCoroutine (RespawnPlayer (body.transform));
-                }
+                //GameManager gm = FindObjectOfType<GameManager> ();
+                //if (gm)
+                //{
+                //    gm.EndGame ();
+                //}
+                //else
+                //{
+                //    body.isKinematic = false;
+                //    body.transform.SetParent (null);
+                //    StartCoroutine (RespawnPlayer (body.transform));
+                //}
+                WinCanvas.SetActive(true);
             }
         }
     }

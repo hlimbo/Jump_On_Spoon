@@ -199,7 +199,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: BedRoom
           m_BoolArgument: 0
         m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -431,6 +431,7 @@ GameObject:
   - component: {fileID: 1288871618}
   - component: {fileID: 1288871617}
   - component: {fileID: 1288871616}
+  - component: {fileID: 1288871619}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -486,6 +487,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1288871619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288871615}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c0578910bbe00d43919a92c7b9893fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1298073300
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,5 +770,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6468318848402342051, guid: 05cd30bb0b51eae4cb778addeb736318,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468318848402341980, guid: 05cd30bb0b51eae4cb778addeb736318,
+        type: 3}
+      propertyPath: level_music.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6468318848402341980, guid: 05cd30bb0b51eae4cb778addeb736318,
+        type: 3}
+      propertyPath: level_music.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: e5c79a9366ab89a4eaff7196876b2d2e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05cd30bb0b51eae4cb778addeb736318, type: 3}

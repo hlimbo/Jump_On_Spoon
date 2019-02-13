@@ -13,6 +13,8 @@ public class TowelElevator : MonoBehaviour
 
     private void OnTriggerEnter (Collider other)
     {
+
+        Debug.Log("colliding");
         if (other.tag == "Player")
         {
             RigidbodyFirstPersonController rfpc = other.GetComponentInChildren<RigidbodyFirstPersonController> ();
@@ -38,7 +40,7 @@ public class TowelElevator : MonoBehaviour
         body.isKinematic = true;
         body.velocity = Vector3.zero;
         body.angularVelocity = Vector3.zero;
-
+        Debug.Log("elevating");
         while (body)
         {
             rfpc.OverrideUpdate ();

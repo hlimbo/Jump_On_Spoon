@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 664978602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.72, y: 3.26, z: 3.44}
+  m_LocalPosition: {x: 0.7, y: 3.26, z: 6.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 300176245589700681}
@@ -136,7 +136,7 @@ MonoBehaviour:
     ForwardSpeed: 20
     BackwardSpeed: 3
     StrafeSpeed: 3
-    RunMultiplier: 1.5
+    RunMultiplier: 1.75
     RunKey: 304
     JumpForce: 60
     SlopeCurveModifier:
@@ -210,10 +210,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpSpeeds:
-  - 2
-  - 4
-  - 8
-  - 70
+  - 3
+  - 20
+  - 50
+  - 130
   jumpDrag: 1
   airSpeed: 1
   oldTramp: {fileID: 0}
@@ -430,16 +430,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2797368077312938986}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3de93b7d60738e46a09bbce42f00ed8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRigidBody: {fileID: 5763729576955094421}
-  climbReference: {fileID: 664978603}
-  rayLength: 5
-  climbSpeed: 1000
-  lerpVal: 1
+  _PlayerRigidBody: {fileID: 5763729576955094421}
+  _ClimbReference: {fileID: 664978603}
+  _RayLength: 2
+  _LerpRate: 1
+  _LerpPositionToOffset: 8
 --- !u!1 &6369563706323295206
 GameObject:
   m_ObjectHideFlags: 0

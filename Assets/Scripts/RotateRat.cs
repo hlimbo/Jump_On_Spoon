@@ -20,7 +20,6 @@ public class RotateRat : MonoBehaviour
     {
         if(deltaTime > move.paceFrequency)
         {
-            print("Rat Rotated");
             Vector3 projectedDistance =  move.moveDirection * move.moveSpeed * move.paceFrequency;
             Vector3 distance = projectedDistance - transform.position;
             Vector3 newDir = Vector3.RotateTowards(transform.forward, projectedDistance, move.moveSpeed * Time.deltaTime, 0.0f);
